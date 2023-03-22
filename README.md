@@ -1,6 +1,6 @@
 # Spark Jobs
 
-* Repository for spark tasks
+* Repository for common spark tasks
 * Spark and Hive based utility scripts
 
 
