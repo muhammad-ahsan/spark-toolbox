@@ -1,7 +1,7 @@
-# Spark Jobs
+# Spark Toolbox
 
 * Repository for common spark tasks
-* Spark and Hive based utility scripts
+* Spark and Hive-based utility scripts
 
 
 # Deployment Infrastructure
