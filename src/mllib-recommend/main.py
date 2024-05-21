@@ -49,6 +49,7 @@ def main():
     model = train_model(ratings)
     test_evaluate_model(model, ratings)
     save_model(output_path, model, sc)
+    print("Saved model to disk")
 
 
 if __name__ == '__main__':
