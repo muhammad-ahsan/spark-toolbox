@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Get the directory of the script
+# Script to build image for dev. Use Github actions for production CI/CD
 SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
 
 # Navigate two levels up
