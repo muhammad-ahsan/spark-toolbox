@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+numpy = "*"
 pyspark = "*"
 psutil = "*"
 pyspark-stubs = "==3.0.0.post3"
