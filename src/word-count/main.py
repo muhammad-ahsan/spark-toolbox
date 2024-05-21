@@ -3,6 +3,7 @@ import logging.config
 import shutil
 
 from pyspark import SparkContext
+from pyspark.rdd import RDD
 
 logging.basicConfig(
     format='%(asctime)s %(levelname)s %(module)s:%(funcName)s %(lineno)d: %(message)s',
@@ -11,20 +12,20 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def main():
+def main() -> None:
     # Initiate setup
-    input_path = "data/sample.txt"
-    output_path = "outputs/word-count/"
+    input_path: str = "data/sample.txt"
+    output_path: str = "outputs/word-count/"
 
     # Remove the output directory if it exists
     if os.path.exists(output_path):
         shutil.rmtree(output_path)
 
     # Initialize Spark Context
-    sc = SparkContext(appName="Word Count")
+    sc: SparkContext = SparkContext(appName="Word Count")
     # Read and process the file
-    words = sc.textFile(input_path).flatMap(lambda line: line.split(" "))
-    word_counts = words.map(lambda word: (word, 1)).reduceByKey(lambda a, b: a + b)
+    words: RDD = sc.textFile(input_path).flatMap(lambda line: line.split(" "))
+    word_counts: RDD = words.map(lambda word: (word, 1)).reduceByKey(lambda a, b: a + b)
     # Save the statistics
     word_counts.saveAsTextFile(output_path)
     logger.info("Word counts saved to file...")
