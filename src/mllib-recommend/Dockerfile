@@ -14,7 +14,4 @@ COPY data/sample.csv ./data/sample.csv
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Change back to non-root user
-# USER 1001
-
 CMD ["spark-submit", "/opt/bitnami/spark/app/mllib-recommend/main.py"]
