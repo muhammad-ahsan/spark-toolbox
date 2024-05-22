@@ -38,9 +38,11 @@ done
 
 echo "Going to execute app -> $app_name"
 
-dockerfile_path="src/$app_name/Dockerfile"
+dockerfile_path="src/Dockerfile"
 echo $dockerfile_path
-docker build -f $dockerfile_path -t "mahsan/$app_name" .
+
+docker login
+docker build --build-arg "job_name=$app_name" -f $dockerfile_path -t "mahsan/$app_name" .
 docker push "mahsan/$app_name"
 
 # To run the app
