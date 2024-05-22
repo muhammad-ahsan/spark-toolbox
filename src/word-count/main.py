@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 def main() -> None:
     # Initiate setup
     input_path: str = download_file(
-        "https://raw.githubusercontent.com/muhammad-ahsan/spark-toolbox/main/data/sample.txt",
+        "https://raw.githubusercontent.com/muhammad-ahsan/datasets/main/sample/spark/sample.txt",
         "txt")
     output_path: str = "outputs/word-count/"
 

@@ -4,6 +4,8 @@ import shutil
 from pyspark import SparkContext
 from pyspark.mllib.recommendation import ALS, MatrixFactorizationModel, Rating
 
+from common_utils.utils import download_file
+
 
 def prepare_data(input_data: str, sc: SparkContext):
     data = sc.textFile(input_data)
@@ -39,13 +41,17 @@ def save_model(output_path: str, model, sc: SparkContext):
 
 def main():
     output_path: str = "outputs/recommend/"
+    input_path: str = download_file(
+        "https://raw.githubusercontent.com/muhammad-ahsan/spark-toolbox/main/data/sample.csv",
+        "csv")
 
     # Remove the output directory if it exists
     if os.path.exists(output_path):
         shutil.rmtree(output_path)
 
     sc: SparkContext = SparkContext(appName="spark-mllib-recommender")
-    ratings = prepare_data("data/sample.csv", sc)
+
+    ratings = prepare_data(input_path, sc)
     model = train_model(ratings)
     test_evaluate_model(model, ratings)
     save_model(output_path, model, sc)
