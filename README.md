@@ -13,7 +13,7 @@ Welcome to the Spark Toolbox! This mono repository is designed to house a collec
 
 # Local Execution
 ```
-spark-submit --master local[*] src/<APP>/main.py
+spark-submit --master local src/<APP>/main.py
 ```
 
 # Local Execution via Docker
@@ -34,7 +34,13 @@ spark-submit --master local[*] src/<APP>/main.py
 spark-submit --packages org.apache.spark:spark-hive_2.12:3.1.2 your_script.py
 ```
 
-## Dockerized Apps
+## Build Dockers 
 ```
-docker build -f src/<APP_DIR>/Dockerfile  -t <APP_NAME> .
+docker build --build-arg job_name=<APP_NAME> -f src/Dockerfile  -t <OPTIONAL_REPO_NAME>/<APP_NAME> .
+```
+
+## Run Dockers
+
+```
+docker run --rm <OPTIONAL_REPO_NAME>/<APP_NAME>
 ```
