@@ -18,7 +18,7 @@ spark-submit --master local[*] src/<APP>/main.py
 
 # Local Execution via Docker
 ```
-./script/run-image.sh
+./script/build-image.sh
 ```
 
 
