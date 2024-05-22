@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 def _download_file() -> str:
     url = "https://raw.githubusercontent.com/muhammad-ahsan/spark-toolbox/main/data/sample.txt"
-    local_file_path = "input.txt"
+    local_file_path = "sample.txt"
 
     response = requests.get(url)
     if response.status_code == 200:
