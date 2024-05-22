@@ -1,10 +1,11 @@
 import os
 import logging.config
 import shutil
-import requests
 
 from pyspark import SparkContext
 from pyspark.rdd import RDD
+
+from common_utils.utils import download_file
 
 logging.basicConfig(
     format='%(asctime)s %(levelname)s %(module)s:%(funcName)s %(lineno)d: %(message)s',
@@ -13,24 +14,11 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def _download_file() -> str:
-    url = "https://raw.githubusercontent.com/muhammad-ahsan/spark-toolbox/main/data/sample.txt"
-    local_file_path = "sample.txt"
-
-    response = requests.get(url)
-    if response.status_code == 200:
-        with open(local_file_path, 'wb') as f:
-            f.write(response.content)
-    else:
-        print("Failed to download file.")
-        raise IOError("Failed to download file.")
-
-    return local_file_path
-
-
 def main() -> None:
     # Initiate setup
-    input_path: str = _download_file()
+    input_path: str = download_file(
+        "https://raw.githubusercontent.com/muhammad-ahsan/spark-toolbox/main/data/sample.txt",
+        "txt")
     output_path: str = "outputs/word-count/"
 
     # Remove the output directory if it exists

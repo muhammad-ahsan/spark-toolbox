@@ -12,6 +12,7 @@ ARG job_name
 WORKDIR "/opt/bitnami/spark/app/${job_name}/"
 
 COPY "src/${job_name}/*" .
+COPY common_utils ./common_utils
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
