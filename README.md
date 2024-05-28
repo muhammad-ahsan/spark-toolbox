@@ -16,7 +16,7 @@ Welcome to the Spark Toolbox! This mono repository is designed to house a collec
 spark-submit --master local src/<APP>/main.py
 ```
 
-# Local Execution via Docker
+# Local Docker Execution 
 ```
 ./script/build-image.sh
 ```
