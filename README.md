@@ -1,6 +1,6 @@
 # Spark Toolbox
 
-Welcome to the Spark Toolbox! This mono repository is designed to house a collection of Spark-based applications that can be executed on both local and remote Spark clusters. Each application within this repository is independently dockerized, making it easy to deploy and manage across different environments. This repository is intended for use within our organization, providing a centralized location for all Spark jobs.
+Welcome to the Spark Toolbox! This mono repository is designed to house a collection of Spark-based applications that can be executed on both local and remote Spark clusters. Each application within this repository is independently dockerized, making it easy to deploy and manage across different environments. This repository is intended for use within our organization, providing a centralized location for all spark jobs.
 
 
 
